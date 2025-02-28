@@ -24,7 +24,7 @@ export class ProjectCardComponent {
     sass: 'assets/image/sass.png',
     vue: 'assets/image/vue.png',
     axios: 'assets/image/axios.png',
-    vite: 'assets/image/vite.svg',
+    vite: 'assets/image/vite.png',
   };
 
   getImage(techType: string): string | undefined {

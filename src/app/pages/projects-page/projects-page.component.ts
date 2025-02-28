@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TechnologiesItemComponent } from '../../components/technologies-item/technologies-item.component';
+import { AppMainComponent } from '../../components/app-main/app-main.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-projects-page',
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterOutlet, TechnologiesItemComponent, AppMainComponent]
 })
 export class ProjectsPageComponent implements OnInit {
 

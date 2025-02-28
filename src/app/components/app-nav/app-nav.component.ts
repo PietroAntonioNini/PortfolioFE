@@ -1,7 +1,7 @@
 // app-nav.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -22,7 +22,7 @@ export class AppNavComponent {
   successMessage = '';
   errorMessage = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   async sendContactRequest() {
     try {
@@ -40,5 +40,9 @@ export class AppNavComponent {
       this.successMessage = '';
       console.error(error);
     }
+  }
+
+  get isHomeRoute(): boolean {
+    return this.router.url === '/';
   }
 }

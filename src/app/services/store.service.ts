@@ -16,7 +16,7 @@ export class StoreService {
     { src: 'assets/image/rxjs.png', link: 'https://rxjs.dev/' },
     { src: 'assets/image/bootstrap.png', link: 'https://getbootstrap.com/' },
     { src: 'assets/image/sass.png', link: 'https://sass-lang.com/' },
-    { src: 'assets/image/vite.svg', link: 'https://vitejs.dev/' },
+    { src: 'assets/image/vite.png', link: 'https://vitejs.dev/' },
     { src: 'assets/image/vue.png', link: 'https://vuejs.org/' },
     { src: 'assets/image/php.png', link: 'https://www.php.net/' },
     { src: 'assets/image/mysql.png', link: 'https://www.mysql.com/it/' },
