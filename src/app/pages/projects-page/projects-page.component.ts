@@ -15,7 +15,7 @@ import { RouterOutlet } from '@angular/router';
 export class ProjectsPageComponent implements OnInit {
 
   // Esempio di URL. In futuro lo sposterai in environment.ts
-  private baseApiUrl = 'https://esempio-di-api.com';
+  private baseApiUrl = 'http://127.0.0.1:8000';
 
   // Dati di paginazione
   apiLinks: any[] = [];

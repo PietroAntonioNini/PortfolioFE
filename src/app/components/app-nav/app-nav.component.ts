@@ -27,7 +27,7 @@ export class AppNavComponent {
   async sendContactRequest() {
     try {
       // URL di esempio (sostituisci con la tua)
-      const url = 'https://laravel-portfolio-backend-443dfe2e95ce.herokuapp.com/api/new-contact';
+      const url = 'http://127.0.0.1:8000/api/new-contact';
       
       const response = await this.http.post(url, this.formData).toPromise();
 
