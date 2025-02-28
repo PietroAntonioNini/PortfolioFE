@@ -1,0 +1,51 @@
+<ng-container *ngIf="project; else loading">
+  <div id="project" class="d-block d-lg-flex pt-5 mt-5">
+    <div class="img-box">
+      <img [src]="project.image" class="d-block w-100" alt="...">
+      <a href="" class="text-decoration-none">
+        <button class="btn btn-outline-light mt-4 d-flex align-center">
+          Vai al codice
+          <i class="fa-brands fa-github fs-4 ms-2"></i>
+        </button>
+      </a>
+    </div>
+
+    <div id="description" class="text-center mx-auto mx-xl-0 mt-5">
+      <h2 class="my-3 fs-1">
+        {{ project.name }}
+      </h2>
+      <p class="mb-5">
+        {{ project.description }}
+      </p>
+
+      <!-- Tecnologie -->
+      <div *ngIf="project.technologies">
+        <h3>Tecnologie utilizzate</h3>
+        <ul class="d-flex flex-wrap justify-content-center list-unstyled gap-5 mb-4 text-uppercase">
+          <li class="my-3" *ngFor="let currentTech of project.technologies">
+            <img
+              [src]="getImage(currentTech.type)"
+              [alt]="currentTech.type"
+              class="mr-1"
+              style="max-height: 40px;"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tipo di progetto -->
+      <div *ngIf="project.type">
+        <h3>Tipo di Progetto</h3>
+        <span class="d-block mt-3">
+          {{ project.type.name }}
+        </span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center my-loader">
+    <div class="loader"></div>
+  </div>
+</ng-template>

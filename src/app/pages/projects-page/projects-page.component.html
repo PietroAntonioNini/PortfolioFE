@@ -1,0 +1,32 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <!-- Qui potresti inserire il componente <app-main> se lo hai creato -->
+  <!-- <app-main></app-main> -->
+
+  <div class="container py-3">
+    <!-- router-outlet figlio, se necessario. Oppure rimuovilo se non ti serve un outlet secondario -->
+    <!-- <router-outlet></router-outlet> -->
+  </div>
+
+  <div class="container d-flex justify-content-center flex-wrap">
+    <img class="saturno" src="assets/image/Saturno.png" alt="">
+
+    <!-- Pagina e comandi di paginazione -->
+    <ul class="pagination d-flex justify-content-center p-0 m-0 gap-2">
+      <li>
+        <button class="btn" (click)="changePage('prev')">Prev</button>
+      </li>
+      <li>
+        <button class="btn" (click)="changePage('next')">Next</button>
+      </li>
+    </ul>
+  </div>
+  <hr>
+
+  <!-- Altri componenti come <technologies-item> li importerai quando convertiti -->
+</ng-container>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center my-loader">
+    <div class="loader"></div>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+.social {
+  a img {
+    width: 45px;
+    transition: 0.2s linear;
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    div {
+      span {
+        font-size: 14px;
+      }
+
+      img {
+        width: 30px;
+      }
+    }
+  }
+}

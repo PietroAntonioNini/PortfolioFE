@@ -1,0 +1,10 @@
+<div class="circle">
+  <div
+    class="circle-item"
+    *ngFor="let logo of logos; let i = index; let total = count"
+    [style.--i]="i"
+    [style.--count]="total"
+  >
+    <img [src]="logo.src" [alt]="logo.alt" />
+  </div>
+</div>

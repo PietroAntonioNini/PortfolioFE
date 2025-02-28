@@ -1,0 +1,48 @@
+.circle {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;    /* centra orizzontalmente */
+  position: relative;
+  /* Se vuoi centrare verticalmente, puoi usare margin/padding o flex sul container padre. */
+
+  .circle-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+
+    /* Calcoliamo l’angolo e il raggio */
+    --angle: calc(360deg / var(--count) * var(--i));
+    --radius: 350px;
+
+    /* Animazione individuale:
+       giriamo "angle + da 0° a 360°" in 30s,
+       e al contempo contro-ruotiamo l'icona per tenerla dritta. */
+    animation: revolve 30s linear infinite;
+
+    img {
+      width: 70px;
+      height: auto;
+      /* Per centrare l'immagine sul proprio punto di ancoraggio */
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* Keyframe: revolve
+   A inizio animazione:  "angle + 0°"
+   A fine animazione:    "angle + 360°"
+   => L’elemento ruota su 360°, e la parte "rotate(calc(-1 * ...))" lo mantiene frontale.
+*/
+@keyframes revolve {
+  0% {
+    transform: rotate(calc(var(--angle) + 0deg))
+               translate(var(--radius))
+               rotate(calc(-1 * (var(--angle) + 0deg)));
+  }
+  100% {
+    transform: rotate(calc(var(--angle) + 360deg))
+               translate(var(--radius))
+               rotate(calc(-1 * (var(--angle) + 360deg)));
+  }
+}

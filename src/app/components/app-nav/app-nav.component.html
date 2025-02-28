@@ -1,0 +1,124 @@
+<nav class="mb-0">
+  <div class="container p-3 d-flex align-items-center justify-content-between">
+    <div class="logo-container d-flex flex-column align-items-center">
+      <a href="https://gravatar.com/pietroantonionini">
+        <img src="assets/image/profilo.png" alt="">
+      </a>
+      <p class="m-0">Pietro Antonio Nini</p>
+    </div>
+
+    <!-- Bottone dropstart (mobile) -->
+    <div class="btn-group dropstart d-md-none d-flex">
+      <button type="button" class="btn border-0" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="navbar-toggler-icon fs-3"></span>
+      </button>
+      <div id="dropdown" class="dropdown-menu">
+        <ul class="list-unstyled text-uppercase text-center d-flex flex-column gap-3 m-0 fs-5">
+          <li>
+            <a [routerLink]="['/']" class="text-decoration-none text-light">Progetti</a>
+          </li>
+          <li>
+            Chi sono
+          </li>
+          <li>
+            <span
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+            >
+              Contattami
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="d-none d-md-flex list-unstyled gap-5 mb-0 text-uppercase">
+      <!-- Se vuoi replicare "v-if=$route.name != 'home'", puoi omettere l’elemento
+           quando siamo su '/', ma serve un po' di logica su Router. 
+           Per semplicità, lo omettiamo. Oppure puoi aggiungere *ngIf="notOnHome" -->
+      <li>
+        <a [routerLink]="['/']" class="text-decoration-none text-light">Progetti</a>
+      </li>
+      <li>
+        Chi sono
+      </li>
+      <li>
+        <span
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          Contattami
+        </span>
+      </li>
+    </ul>
+
+  </div>
+  <hr class="m-0">
+</nav>
+
+<!-- Offcanvas -->
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-uppercase fw-bold" id="offcanvasRightLabel">
+      Contattami
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <!-- In Angular: (ngSubmit)="sendContactRequest()" e [(ngModel)] -->
+    <form (ngSubmit)="sendContactRequest()">
+      <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+      <div class="mb-4">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          [(ngModel)]="formData.name"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label for="address" class="form-label">Indirizzo Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="address"
+          name="address"
+          aria-describedby="emailHelp"
+          [(ngModel)]="formData.address"
+        />
+        <div id="emailHelp" class="form-text">
+          Non condivideremo la tua email con terzi.
+        </div>
+      </div>
+
+      <div class="form-floating mb-4">
+        <textarea
+          class="form-control"
+          placeholder="Lascia un commento qui.."
+          id="message"
+          name="message"
+          style="height: 100px;"
+          [(ngModel)]="formData.message"
+        ></textarea>
+        <label for="message">Messaggio</label>
+      </div>
+
+      <button type="submit" class="btn btn-outline-light">Invia</button>
+    </form>
+  </div>
+</div>

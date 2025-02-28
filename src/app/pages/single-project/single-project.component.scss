@@ -1,0 +1,67 @@
+#project {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+  .img-box {
+    max-width: 700px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    img {
+      object-fit: contain;
+    }
+  }
+
+  #description {
+    max-width: 450px;
+
+    p {
+      line-height: 1.8em;
+    }
+
+    h2, h3 {
+      text-transform: uppercase;
+    }
+
+    span {
+      text-transform: uppercase;
+      font-style: italic;
+    }
+  }
+}
+
+.my-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .loader {
+    width: 80px;
+    aspect-ratio: 1;
+    border: 10px solid #0000;
+    box-sizing: border-box;
+    background:
+      radial-gradient(farthest-side, #fff 98%, #0000) 0 0 / 20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 100% 0 / 20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 100% 100% / 20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 0 100% / 20px 20px,
+      linear-gradient(#fff 0 0) 50% / 40px 40px,
+      #000;
+    background-repeat: no-repeat;
+    filter: blur(4px) contrast(10);
+    animation: l12 0.8s infinite;
+  }
+  @keyframes l12 {
+    100% {
+      background-position: 100% 0,
+        100% 100%,
+        0 100%,
+        0 0,
+        center;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, hsla(274, 6%, 24%, 0.56) 0%, hsl(0, 0%, 0%) 60%);
+  backdrop-filter: blur(15px);
+
+  .logo-container {
+    width: 135px;
+    a {
+      width: 60px;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      width: 135px;
+      cursor: default;
+    }
+  }
+}

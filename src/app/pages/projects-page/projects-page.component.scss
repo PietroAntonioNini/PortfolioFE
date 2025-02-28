@@ -1,0 +1,68 @@
+.saturno {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  width: 95%;
+}
+
+.pagination {
+  list-style-type: none;
+
+  .pagination-container {
+    display: flex;
+    column-gap: 10px;
+  }
+  .paginate-buttons {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: linear-gradient(0deg, #41485500 0%, rgba(74, 71, 76, 0.725) 100%);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 7px 20px 5px #00000048;
+    position: relative;
+    border: 1px solid rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+  }
+  .paginate-buttons:hover {
+    background-color: #d8d8d8;
+  }
+  .active-page {
+    background-color: #7c7c7c;
+    border: 1px solid #ffffff;
+    color: white;
+  }
+  .active-page:hover {
+    background-color: #b1b1b1;
+  }
+}
+
+.my-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .loader {
+    width: 80px;
+    aspect-ratio: 1;
+    border: 10px solid #0000;
+    box-sizing: border-box;
+    background: radial-gradient(farthest-side, #fff 98%, #0000) 0 0/20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 100% 0/20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 100% 100%/20px 20px,
+      radial-gradient(farthest-side, #fff 98%, #0000) 0 100%/20px 20px,
+      linear-gradient(#fff 0 0) 50%/40px 40px,
+      #000;
+    background-repeat: no-repeat;
+    filter: blur(4px) contrast(10);
+    animation: l12 0.8s infinite;
+  }
+  @keyframes l12 {
+    100% {
+      background-position: 100% 0, 100% 100%, 0 100%, 0 0, center;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<!-- Se isSkip === 1, mostriamo la HomePage -->
+<app-home-page
+  *ngIf="isSkip === 1"
+  (goToProjects)="goToProjects()"
+></app-home-page>
+
+<!-- Se isSkip !== 1, mostriamo Nav + RouterOutlet + Footer -->
+<ng-container *ngIf="isSkip !== 1">
+  <app-nav></app-nav>
+
+  <div class="container py-5 pb-0">
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+</ng-container>
