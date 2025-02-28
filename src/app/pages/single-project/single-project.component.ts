@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment/environment';
 
 @Component({
   standalone: true,
@@ -12,26 +13,27 @@ import { CommonModule } from '@angular/common';
 })
 export class SingleProjectComponent implements OnInit {
 
-  // URL dell’API
-  private baseApiUrl = 'https://esempio-di-api.com'; 
-  // Da spostare poi in environment.ts
-
   project: any = null;
   projectId!: string;
 
+  env = environment
+
   techImages: { [key: string]: string } = {
+    angular: 'angular.png',
     html: 'html.png',
     css: 'css.png',
     js: 'js.png',
+    ts: 'ts.png',
     bootstrap: 'bootstrap.png',
     laravel: 'laravel.png',
     mysql: 'mysql.png',
     php: 'php.png',
+    rxjs: 'rxjs.png',
     sass: 'sass.png',
     vue: 'vue.png',
     axios: 'axios.png',
-    github: 'Github logo 64.png',
-    vite: 'vite.svg',
+    git: 'git.png',
+    vite: 'vite.png',
   };
 
   constructor(
@@ -54,14 +56,14 @@ export class SingleProjectComponent implements OnInit {
   }
 
   loadProject(): void {
-    this.http.get<any>(`${this.baseApiUrl}/api/projects/${this.projectId}`)
+    this.http.get<any>(`${this.env.apiUrl}/api/projects/${this.projectId}`)
       .subscribe({
         next: (res) => {
           if (res.success) {
             this.project = res.project;
             // Se c'è un'immagine, aggiungi il path
             if (this.project.image) {
-              this.project.image = `${this.baseApiUrl}/storage/${this.project.image}`;
+              this.project.image = `${this.env.apiUrl}/storage/${this.project.image}`;
             }
           } else {
             this.router.navigate(['/']);

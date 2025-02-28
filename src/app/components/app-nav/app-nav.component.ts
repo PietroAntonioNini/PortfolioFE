@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environment/environment';
 
 @Component({
   standalone: true,
@@ -22,13 +23,13 @@ export class AppNavComponent {
   successMessage = '';
   errorMessage = '';
 
+  env = environment
+
   constructor(private http: HttpClient, private router: Router) {}
 
   async sendContactRequest() {
     try {
-      // URL di esempio (sostituisci con la tua)
-      const url = 'http://127.0.0.1:8000/api/new-contact';
-      
+      const url = `${this.env.apiUrl}/new-contact`;
       const response = await this.http.post(url, this.formData).toPromise();
 
       this.successMessage = 'Messaggio inviato con successo!';

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment/environment';
 
 @Component({
   standalone: true,
@@ -15,6 +16,8 @@ export class AppFooterComponent implements OnInit {
   // Se volevi usare "apiPageNumber", definiscilo
   apiPageNumber = 1;
 
+  env = environment
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -23,7 +26,7 @@ export class AppFooterComponent implements OnInit {
 
   apiCall(): void {
     // Esempio, URL e logica fittizia
-    const url = `https://laravel-portfolio-backend-443dfe2e95ce.herokuapp.com/api/projects?page=${this.apiPageNumber}`;
+    const url = `${this.env.apiUrl}/projects?page=${this.apiPageNumber}`;
 
     this.isLoading = true;
     this.http.get<any>(url).subscribe({

@@ -1,6 +1,5 @@
 // app-main.component.ts
-import { Component, OnInit } from '@angular/core';
-import { StoreService } from '../../services/store.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { CommonModule } from '@angular/common';
 
@@ -15,13 +14,11 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class AppMainComponent implements OnInit {
-  
-  projects: any[] = [];
+  @Input() projects: any[] = [];
 
-  constructor(private store: StoreService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.projects = this.store.projects;
   }
 
   trackById(index: number, item: any): number {

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { StoreService } from '../../services/store.service';
 import { TechnologiesItemComponent } from '../../components/technologies-item/technologies-item.component';
 import { AppMainComponent } from '../../components/app-main/app-main.component';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '../../../environment/environment';
 
 @Component({
   standalone: true,
@@ -13,20 +15,17 @@ import { RouterOutlet } from '@angular/router';
   imports: [CommonModule, RouterOutlet, TechnologiesItemComponent, AppMainComponent]
 })
 export class ProjectsPageComponent implements OnInit {
-
-  // Esempio di URL. In futuro lo sposterai in environment.ts
-  private baseApiUrl = 'http://127.0.0.1:8000';
-
   // Dati di paginazione
   apiLinks: any[] = [];
   apiPageNumber = 1;
   currentPage = 1;
   isLoading = true;
 
-  // In Vue usavi "store.projects"; qui, per ora, un array di projects
+  env = environment
+
   projects: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: StoreService) { }
 
   ngOnInit(): void {
     this.loadProjects();
@@ -34,7 +33,7 @@ export class ProjectsPageComponent implements OnInit {
 
   loadProjects(): void {
     this.isLoading = true;
-    this.http.get<any>(`${this.baseApiUrl}/api/projects?page=${this.apiPageNumber}`)
+    this.http.get<any>(`${this.env.apiUrl}/projects?page=${this.apiPageNumber}`)
       .subscribe({
         next: (res) => {
           // Prevediamo che l’API restituisca un oggetto simile a
@@ -44,7 +43,7 @@ export class ProjectsPageComponent implements OnInit {
           }
           // Aggiunta percorso immagine (nel tuo caso)
           res.results.data.forEach((project: any) => {
-            project.image = `${this.baseApiUrl}/storage/${project.image}`;
+            project.image = `${this.env.apiUrl}/storage/${project.image}`;
           });
 
           this.projects = res.results.data;

@@ -1,9 +1,9 @@
 <ng-container *ngIf="!isLoading; else loading">
-  <app-main></app-main>
+  <app-main [projects]="projects"></app-main>
 
-  <!-- <div class="container py-3">
+  <div class="container py-3">
     <router-outlet></router-outlet>
-  </div> -->
+  </div>
 
   <div class="container d-flex justify-content-center flex-wrap">
     <!-- <img class="saturno" src="assets/image/Saturno.png" alt="saturno"> -->
