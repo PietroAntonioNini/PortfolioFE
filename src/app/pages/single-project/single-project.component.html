@@ -1,25 +1,47 @@
 <ng-container *ngIf="project; else loading">
-  <div id="project" class="d-block d-lg-flex pt-5 mt-5">
+  <div id="project" class="pt-5 mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center my-1">
+        <h1 class="mb-3">
+          {{ project.name }} - 
+        </h1>
+        <ul class="d-flex align-items-end list-unstyled gap-3 ms-2 mb-1">
+          <li *ngFor="let currentTech of project.technologies">
+            <img
+              [src]="getImage(currentTech.type)"
+              [alt]="currentTech.type"
+              style="max-height: 40px;"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex gap-3">
+        <a href="{{ project.link_GitHub }}" class="text-decoration-none">
+          <button class="btn btn-outline-light d-flex align-center">
+            Vai al repository
+            <i class="fa-brands fa-github fs-4 ms-2"></i>
+          </button>
+        </a>
+        <a href="{{ project.link_GitHub }}" class="text-decoration-none">
+          <button class="btn btn-outline-light d-flex align-center">
+            Vai alla descrizione
+            <i class="fa-brands fa-github fs-4 ms-2"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+
     <div class="img-box">
-      <img [src]="project.image" class="d-block w-100" alt="...">
-      <a href="{{ project.link_GitHub }}" class="text-decoration-none">
-        <button class="btn btn-outline-light mt-4 d-flex align-center">
-          Vai al codice
-          <i class="fa-brands fa-github fs-4 ms-2"></i>
-        </button>
-      </a>
+      <img [src]="project.image" class="d-block w-100" alt="...">  
     </div>
 
     <div id="description" class="text-center mx-auto mx-xl-0 mt-5">
-      <h2 class="my-3 fs-1">
-        {{ project.name }}
-      </h2>
       <p class="mb-5">
         {{ project.description }}
       </p>
 
       <!-- Tecnologie -->
-      <div *ngIf="project.technologies">
+      <!-- <div *ngIf="project.technologies">
         <h3>Tecnologie utilizzate</h3>
         <ul class="d-flex flex-wrap justify-content-center list-unstyled gap-5 mb-4 text-uppercase">
           <li class="my-3" *ngFor="let currentTech of project.technologies">
@@ -31,7 +53,7 @@
             />
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <!-- Tipo di progetto -->
       <div *ngIf="project.type">
