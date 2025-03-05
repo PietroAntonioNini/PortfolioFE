@@ -43,7 +43,7 @@ export class ProjectsPageComponent implements OnInit {
           }
           // Aggiunta percorso immagine (nel tuo caso)
           res.results.data.forEach((project: any) => {
-            project.image = `${this.env.apiUrl}/storage/${project.image}`;
+            project.image = `http://127.0.0.1:8000/storage/${project.image}`;
           });
 
           this.projects = res.results.data;

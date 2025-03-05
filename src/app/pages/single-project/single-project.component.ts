@@ -22,8 +22,8 @@ export class SingleProjectComponent implements OnInit {
     angular: 'angular.png',
     html: 'html.png',
     css: 'css.png',
-    js: 'js.png',
-    ts: 'ts.png',
+    javascript: 'js.png',
+    typescript: 'ts.png',
     bootstrap: 'bootstrap.png',
     laravel: 'laravel.png',
     mysql: 'mysql.png',
@@ -44,7 +44,7 @@ export class SingleProjectComponent implements OnInit {
 
   ngOnInit(): void {
     // Leggi il parametro 'id' dalla rotta: '/projects/:id'
-    this.projectId = this.route.snapshot.paramMap.get('id') || '';
+    this.projectId = this.route.snapshot.paramMap.get('slug') || '';
 
     // Se per qualche ragione non hai l'id, torna alla home
     if (!this.projectId) {
@@ -56,14 +56,14 @@ export class SingleProjectComponent implements OnInit {
   }
 
   loadProject(): void {
-    this.http.get<any>(`${this.env.apiUrl}/api/projects/${this.projectId}`)
+    this.http.get<any>(`${this.env.apiUrl}/projects/${this.projectId}`)
       .subscribe({
         next: (res) => {
           if (res.success) {
             this.project = res.project;
             // Se c'è un'immagine, aggiungi il path
             if (this.project.image) {
-              this.project.image = `${this.env.apiUrl}/storage/${this.project.image}`;
+              this.project.image = `http://127.0.0.1:8000/storage/${this.project.image}`;
             }
           } else {
             this.router.navigate(['/']);
@@ -78,11 +78,8 @@ export class SingleProjectComponent implements OnInit {
 
   // Ritorniamo il path all'immagine della tecnologia
   getImage(techType: string): string {
-    // Copia i file in "src/assets/"
-    // e punta a 'assets/<file>.png'
     return this.techImages[techType]
-      ? `assets/${this.techImages[techType]}`
-      : 'assets/default.png'; 
-      // (se vuoi un fallback)
+      ? `assets/image/${this.techImages[techType]}`
+      : 'assets/default.png';
   }
 }

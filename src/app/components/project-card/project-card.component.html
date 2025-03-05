@@ -1,7 +1,7 @@
 <li class="card p-2" style="width: 18rem;">
   <div class="img-container">
     <!-- Se usi un proxy per le immagini, adatta la stringa qui -->
-    <img [src]="'/proxy-image/' + project.image" class="card-img-top" alt="image">
+    <img [src]="project.image" class="card-img-top" alt="image">
   </div>
   <div class="card-body p-4 d-flex flex-column justify-content-between">
     <div class="my-4">
@@ -23,7 +23,7 @@
       </span>
     </div>
     <div>
-      <a [routerLink]="['/projects', project.id]" class="btn btn-outline-light btn-outline">
+      <a [routerLink]="['/projects', project.slug]" class="btn btn-outline-light btn-outline">
         Vai al progetto
       </a>
     </div>

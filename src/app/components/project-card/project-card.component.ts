@@ -37,10 +37,4 @@ export class ProjectCardComponent {
     return undefined;
   }
 
-  getCleanImageUrl(image: string): string {
-    // Esempio della regex che usavi:
-    const googleDriveId = image.replace(/https:\/\/.*\/storage\//, '');
-    return googleDriveId;
-  }
-
 }
