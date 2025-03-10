@@ -23,4 +23,16 @@ nav {
       white-space: nowrap;
     }
   }
+
+  .tab {
+    li{
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+  
 }

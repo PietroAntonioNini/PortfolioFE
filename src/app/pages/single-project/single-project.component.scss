@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin: 115px 50px 20px;
+  user-select: none;
 
   .img-box {
     max-width: 100%;
+    margin: 10px 100px;
     z-index: 0;
     
     img {
@@ -13,7 +16,7 @@
   }
 
   #description {
-    max-width: 450px;
+    margin: 0 20px;
 
     p {
       line-height: 1.8em;
@@ -28,8 +31,38 @@
       font-style: italic;
     }
   }
+
+  @media screen and (max-width: 1290px) {
+    
+  }
+  
+  @media screen and (max-width: 890px) {
+    
+  }
+  
+  @media screen and (max-width: 840px) {
+    
+  }
+  
+  @media screen and (max-width: 760px) {
+    
+  }
+  
+  @media screen and (max-width: 480px) {
+    
+  }
+  
+  @media screen and (max-width: 400px) {
+    
+  }
+  
+  @media screen and (max-width: 350px) {
+    
+  }
 }
 
+
+//LOADER
 .my-loader {
   position: absolute;
   left: 50%;

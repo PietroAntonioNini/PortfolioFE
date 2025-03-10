@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environment/environment';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-single-project',
   templateUrl: './single-project.component.html',
   styleUrls: ['./single-project.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterLink]
 })
 export class SingleProjectComponent implements OnInit {
 

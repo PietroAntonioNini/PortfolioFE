@@ -13,12 +13,12 @@
         <span class="navbar-toggler-icon fs-3"></span>
       </button>
       <div id="dropdown" class="dropdown-menu">
-        <ul class="list-unstyled text-uppercase text-center d-flex flex-column gap-3 m-0 fs-5">
+        <ul class="tab list-unstyled text-uppercase text-center d-flex flex-column gap-3 m-0 fs-5">
           <li>
-            <a [routerLink]="['/']" class="text-decoration-none text-light" draggable="false">Progetti</a>
+            <span [routerLink]="['/']" class="text-decoration-none text-light" draggable="false">Progetti</span>
           </li>
           <li>
-            Chi sono
+            <span [routerLink]="['']" class="text-decoration-none text-light" draggable="false">Chi sono</span>
           </li>
           <li>
             <span
@@ -34,15 +34,12 @@
       </div>
     </div>
 
-    <ul class="d-none d-md-flex list-unstyled gap-5 mb-0 text-uppercase">
-      <!-- Se vuoi replicare "v-if=$route.name != 'home'", puoi omettere l’elemento
-           quando siamo su '/', ma serve un po' di logica su Router. 
-           Per semplicità, lo omettiamo. Oppure puoi aggiungere *ngIf="notOnHome" -->
+    <ul class="tab d-none d-md-flex list-unstyled gap-5 mb-0 text-uppercase">
       <li>
-        <a [routerLink]="['/']" class="text-decoration-none text-light">Progetti</a>
+        <span [routerLink]="['/']" *ngIf="router.url !== '/'" class="text-decoration-none text-light" draggable="false"><i class="fa-solid fa-code"></i> Progetti</span>
       </li>
       <li>
-        Chi sono
+        <span [routerLink]="['/']" class="text-decoration-none text-light" draggable="false"><i class="fa-solid fa-user"></i> Chi sono</span>
       </li>
       <li>
         <span
@@ -51,6 +48,7 @@
           data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight"
         >
+          <i class="fa-solid fa-paper-plane"></i>
           Contattami
         </span>
       </li>

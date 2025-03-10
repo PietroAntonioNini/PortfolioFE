@@ -25,7 +25,7 @@ export class AppNavComponent {
 
   env = environment
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
   async sendContactRequest() {
     try {
