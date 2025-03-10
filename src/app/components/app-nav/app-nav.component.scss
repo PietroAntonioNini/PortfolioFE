@@ -6,6 +6,7 @@ nav {
   z-index: 1;
   background: linear-gradient(0deg, hsla(274, 6%, 24%, 0.56) 0%, hsl(0, 0%, 0%) 60%);
   backdrop-filter: blur(15px);
+  user-select: none;
 
   .logo-container {
     width: 135px;

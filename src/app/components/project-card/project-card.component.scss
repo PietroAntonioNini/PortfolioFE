@@ -1,8 +1,79 @@
 .card {
-  width: 18rem;
+  width: 27rem;
 
-  @media (max-width: 768px) {
-    width: 22rem;
+  .card-info{
+    user-select: none;
+
+    .card-title{
+      margin-bottom: 28px;
+    }
+
+    .techItems{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 23px;
+
+      .technlogiesImg{
+        max-height: 25px;
+      }
+    }
+
+    .myBadge{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      
+      .badge{
+        font-size: 14px;
+      }
+    }
+  }
+
+  .img-container {
+    max-width: 100%;
+    user-select: none;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  @media (max-width: 1290px) {
+    width: 23rem;
+  }
+
+  @media (max-width: 890px) {
+    width: 45rem;
+  }
+
+  @media (max-width: 840px) {
+    width: 42rem;
+  }
+
+  @media (max-width: 760px) {
+    width: 25rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 24rem;
+
+    .card-title{
+      font-size: 25px; 
+    }
+
+    .technlogiesImg{
+      max-height: 30px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 350px) {
+    width: 16rem;
   }
 
   background: linear-gradient(0deg, #41485500 0%, rgb(95, 86, 103) 100%);
@@ -10,11 +81,5 @@
   box-shadow: 0 7px 20px 5px #00000048;
   position: relative;
 
-  .img-container {
-    max-width: 400px;
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
-  }
+  
 }

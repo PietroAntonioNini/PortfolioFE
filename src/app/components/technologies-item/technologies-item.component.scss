@@ -1,14 +1,18 @@
-h1 {
-  text-transform: uppercase;
-  text-shadow: 2px 3px 4px rgba(255, 255, 255, 0.613);
-  cursor: default;
-}
-
-li {
-  padding: 10px;
-
-  .logo {
-    width: auto;
-    height: 50px;
+.technlogies{
+  user-select: none;
+  
+  h1 {
+    text-transform: uppercase;
+    text-shadow: 2px 3px 4px rgba(255, 255, 255, 0.613);
+    cursor: default;
+  }
+  
+  li {
+    padding: 10px;
+  
+    .logo {
+      width: auto;
+      height: 50px;
+    }
   }
 }

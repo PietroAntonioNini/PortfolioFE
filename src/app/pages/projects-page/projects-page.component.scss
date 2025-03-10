@@ -1,6 +1,6 @@
 .saturno {
   position: absolute;
-  top: 0;
+  top: 45px;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
@@ -9,6 +9,7 @@
 
 .pagination {
   list-style-type: none;
+  user-select: none;
 
   .pagination-container {
     display: flex;
@@ -64,5 +65,20 @@
     100% {
       background-position: 100% 0, 100% 100%, 0 100%, 0 0, center;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .saturno {
+    top: 150px;
+    width: 100%;
+  }
+}
+
+/* Se lo schermo è ancora più piccolo, ad esempio < 480px */
+@media (max-width: 480px) {
+  .saturno {
+    top: 100px;
+    width: 100%;
   }
 }

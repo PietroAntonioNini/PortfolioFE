@@ -28,6 +28,7 @@ export class ProjectCardComponent {
     vue: 'assets/image/vue.png',
     axios: 'assets/image/axios.png',
     vite: 'assets/image/vite.png',
+    git: 'assets/image/git.png',
   };
 
   getImage(techType: string): string | undefined {

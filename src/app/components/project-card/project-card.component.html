@@ -1,31 +1,33 @@
-<li class="card p-2" style="width: 18rem;">
+<div class="card p-2">
   <div class="img-container">
-    <!-- Se usi un proxy per le immagini, adatta la stringa qui -->
-    <img [src]="project.image" class="card-img-top" alt="image">
+    <img [src]="project.image" class="card-img-top" alt="image" draggable="false">
   </div>
-  <div class="card-body p-4 d-flex flex-column justify-content-between">
-    <div class="my-4">
-      <h5 class="card-title">{{ project.name }}</h5>
+  <div class="card-body px-2 d-flex flex-column justify-content-between align-items-center">
+    <div class="card-info my-2">
+      <h2 class="card-title text-center">{{ project.name }}</h2>
 
-      <ul class="d-flex flex-wrap list-unstyled gap-2 mb-2 text-uppercase">
+      <ul class="techItems list-unstyled text-uppercase">
         <li *ngFor="let currentTech of project.technologies">
           <img
             [src]="getImage(currentTech.type)"
             [alt]="currentTech.type"
-            class="mr-1"
-            style="max-height: 20px;"
+            draggable="false"
+            class="technlogiesImg mr-1"
           />
         </li>
       </ul>
 
-      <span *ngIf="project.type" class="d-block text-primary mb-3">
-        {{ project.type.name }}
-      </span>
+      <div class="myBadge">
+        <span *ngIf="project.type" class="badge text-bg-primary">
+          {{ project.type.name }}
+        </span>
+      </div>
     </div>
-    <div>
-      <a [routerLink]="['/projects', project.slug]" class="btn btn-outline-light btn-outline">
+
+    <div class="d-flex justify-content-center">
+      <a [routerLink]="['/projects', project.slug]" class="btn btn-outline-light btn-outline" draggable="false">
         Vai al progetto
       </a>
     </div>
   </div>
-</li>
+</div>
