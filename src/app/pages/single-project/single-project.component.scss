@@ -5,9 +5,15 @@
   margin: 115px 50px 20px;
   user-select: none;
 
+  .titleContainer{
+    i{
+      font-size: 21px;
+    }
+  }
+
   .img-box {
     max-width: 100%;
-    margin: 10px 100px;
+    margin: 0px 220px;
     z-index: 0;
     
     img {
@@ -33,7 +39,43 @@
   }
 
   @media screen and (max-width: 1290px) {
-    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 115px 50px 20px;
+    user-select: none;
+
+    .titleContainer{
+      i{
+        font-size: 18px;
+      }
+      .title{
+        font-size: 25px;
+      }
+    }
+
+    .img-box {
+      max-width: 100%;
+      margin: 0px 110px;
+      z-index: 0;
+      
+      img {
+        object-fit: contain;
+      }
+    }
+
+    #description {
+      margin: 0 20px;
+
+      h1, h3 {
+        text-transform: uppercase;
+      }
+
+      span {
+        text-transform: uppercase;
+        font-style: italic;
+      }
+    }
   }
   
   @media screen and (max-width: 890px) {
