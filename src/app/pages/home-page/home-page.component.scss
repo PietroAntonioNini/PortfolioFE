@@ -38,20 +38,20 @@
     }
 
     h1 {
-      font-size: 58px;
+      font-size: 45px;
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
     h2 {
-      font-size: 38px;
+      font-size: 30px;
       font-weight: 600;
       text-transform: uppercase;
       margin-bottom: 50px;
     }
 
     .button {
-      font-size: 40px;
+      font-size: 33px;
       padding: 7px 20px;
       text-transform: uppercase;
       box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.613);
@@ -73,13 +73,13 @@
     display: flex;
     gap: 20px;
     position: absolute;
-    top: 12%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2; /* sopra il cerchio di icone se vuoi che il testo stia in primo piano */
 
     a img {
-      width: 90px;
+      width: 70px;
       transition: 0.2s linear;
 
       &:hover {

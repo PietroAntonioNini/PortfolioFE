@@ -15,7 +15,7 @@ import { environment } from '../../../environment/environment';
   imports: [CommonModule, RouterOutlet, TechnologiesItemComponent, AppMainComponent]
 })
 export class ProjectsPageComponent implements OnInit {
-  // Dati di paginazione
+  private baseApiUrl = 'http://127.0.0.1:8000';
   apiLinks: any[] = [];
   apiPageNumber = 1;
   currentPage = 1;
@@ -24,20 +24,25 @@ export class ProjectsPageComponent implements OnInit {
   env = environment
 
   projects: any[] = [];
+  currentFilter: string = '';
 
   constructor(private http: HttpClient, private store: StoreService) { }
 
   ngOnInit(): void {
-    this.loadProjects();
+    this.loadProjects(true);
   }
 
-  loadProjects(): void {
-    this.isLoading = true;
-    this.http.get<any>(`${this.env.apiUrl}/projects?page=${this.apiPageNumber}`)
+  loadProjects(showLoader: boolean = true): void {
+    if (showLoader) {
+      this.isLoading = true;
+    }
+    let url = `${this.baseApiUrl}/api/projects?page=${this.apiPageNumber}`;
+    if (this.currentFilter) {
+      url += `&filter=${encodeURIComponent(this.currentFilter)}`;
+    }
+    this.http.get<any>(url)
       .subscribe({
         next: (res) => {
-          // Prevediamo che l’API restituisca un oggetto simile a
-          // { success: true, results: { data: [...], links: [...] } }
           if (res.success) {
             this.isLoading = false;
           }
@@ -56,6 +61,14 @@ export class ProjectsPageComponent implements OnInit {
       });
   }
 
+  // Funzione per impostare il filtro
+  setFilter(filter: string): void {
+    this.currentFilter = filter;
+    this.currentPage = 1;
+    this.apiPageNumber = 1;
+    this.loadProjects(false);
+  }
+
   changePage(direction: 'next' | 'prev'): void {
     const totalPages = 10; // Sostituisci con un valore reale o calcolalo dall’API
 
@@ -66,7 +79,7 @@ export class ProjectsPageComponent implements OnInit {
     }
 
     this.apiPageNumber = this.currentPage;
-    this.loadProjects();
+    this.loadProjects(false);
   }
 
 }

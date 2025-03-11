@@ -1,6 +1,14 @@
 <main>
   <div class="py-4 mt-5 mx-5">
-    <h1 class="py-5 ps-4 mb-0">I MIEI PROGETTI</h1>
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="py-5 ps-4 mb-0">I MIEI PROGETTI</h1>
+      <div class="filters d-flex justify-content-center gap-2">
+        <button class="btn btn-outline-light btn-outline" (click)="onFilter('')" [class.active]="!currentFilter">Tutti</button>
+        <button class="btn btn-outline-light btn-outline" (click)="onFilter('Front-End')" [class.active]="currentFilter ==='Front-End'">Frontend</button>
+        <button class="btn btn-outline-light btn-outline" (click)="onFilter('Back-End')" [class.active]="currentFilter ==='Back-End'">Backend</button>
+        <button class="btn btn-outline-light btn-outline" (click)="onFilter('Full-stack')" [class.active]="currentFilter ==='Full-stack'">Full-stack</button>
+      </div>
+    </div>
     <ul class="list-unstyled">
       <li
         class="d-flex justify-content-center flex-wrap gap-4 mx-auto"

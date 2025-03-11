@@ -1,5 +1,5 @@
 // app-main.component.ts
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppMainComponent implements OnInit {
   @Input() projects: any[] = [];
+  @Input() currentFilter: string = '';
+  @Output() filterChange = new EventEmitter<string>(); 
 
   constructor() {}
 
@@ -23,5 +25,9 @@ export class AppMainComponent implements OnInit {
 
   trackById(index: number, item: any): number {
     return item.id;
+  }
+
+  onFilter(filter: string): void {
+    this.filterChange.emit(filter);
   }
 }
